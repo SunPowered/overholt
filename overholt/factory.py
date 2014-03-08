@@ -49,7 +49,7 @@ def create_app(package_name, package_path, settings_override=None,
 
 
 def create_celery_app(app=None):
-    app = app or create_app('overholt', os.path.dirname(__file__))
+    app = app or create_app('overholt',[ os.path.dirname(__file__)])
     celery = Celery(__name__, broker=app.config['CELERY_BROKER_URL'])
     celery.conf.update(app.config)
     TaskBase = celery.Task
