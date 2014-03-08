@@ -70,6 +70,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell do |sh|
     sh.inline = <<-EOF
       sudo apt-get update
+      sudo apt-get install make
       sudo apt-get install ruby1.9.3 --yes
       sudo gem install chef --version 11.4.4 --no-ri --no-rdoc
     EOF
